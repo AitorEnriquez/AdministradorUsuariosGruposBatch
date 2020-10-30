@@ -96,16 +96,20 @@ echo Introduce el usuario que quieras crear
 set /p usuario=
 :PreguntaU
 cls
-echo Se va a crear el usuario "%usuario%", quieres continuar? (s=Si/n=No)
+echo Se va a crear el usuario "%usuario%", quieres continuar? (s=Si/n=No/c=Cancelar)
 set /p choice=
-if '%choice%' == 'S'    goto    AgregandoU 
-if '%choice%' == 's'    goto    AgregandoU 
-if '%choice%' == 'Si'    goto    AgregandoU 
-if '%choice%' == 'si'    goto    AgregandoU 
-if '%choice%' == 'n'    goto Seleccion2
-if '%choice%' == 'no'    goto Seleccion2
-if '%choice%' == 'N'    goto Seleccion2
-if '%choice%' == 'No'    goto Seleccion2
+if '%choice%' == 'S'    	goto    AgregandoU 
+if '%choice%' == 's'    	goto    AgregandoU 
+if '%choice%' == 'Si'    	goto    AgregandoU 
+if '%choice%' == 'si'    	goto    AgregandoU 
+if '%choice%' == 'n'    	goto 	AgregarU
+if '%choice%' == 'no'    	goto 	AgregarU
+if '%choice%' == 'N'    	goto 	AgregarU
+if '%choice%' == 'No'    	goto 	AgregarU
+if '%choice%' == 'c'		goto	Seleccion2
+if '%choice%' == 'cancelar'	goto	Seleccion2
+if '%choice%' == 'C'		goto	Seleccion2
+if '%choice%' == 'Cancelar'	goto	Seleccion2
 
 echo Tu seleccion ("%choice%") no es valida
 pause  
