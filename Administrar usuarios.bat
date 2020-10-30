@@ -91,7 +91,7 @@ Rem Fin Menu de grupos
 Rem Agregar usuario
 :AgregarU
 cls
-echo Introduce el usuario que quieras crear
+echo Introduce el nombre del usuario que quieras crear
 
 set /p usuario=
 :PreguntaU
@@ -130,14 +130,14 @@ pause
 cls
 echo Quieres crear otro usuario? (s=Si)/(n=No)
 set /p choice=
-if '%choice%' == 'S'    goto    AgregarU 
-if '%choice%' == 's'    goto    AgregarU 
-if '%choice%' == 'Si'    goto    AgregarU 
-if '%choice%' == 'si'    goto    AgregarU
-if '%choice%' == 'n'    goto Seleccion1
-if '%choice%' == 'no'    goto Seleccion1
-if '%choice%' == 'N'    goto Seleccion1
-if '%choice%' == 'No'   goto Seleccion1
+if '%choice%' == 'S'        goto    AgregarU 
+if '%choice%' == 's'        goto    AgregarU 
+if '%choice%' == 'Si'       goto    AgregarU 
+if '%choice%' == 'si'       goto    AgregarU
+if '%choice%' == 'n'        goto    Seleccion2
+if '%choice%' == 'no'       goto    Seleccion2
+if '%choice%' == 'N'        goto    Seleccion2
+if '%choice%' == 'No'       goto    Seleccion2
 echo Tu seleccion ("%choice%") no es valida
 pause  
 goto :PreguntaU2
@@ -147,18 +147,29 @@ Rem FIN Agregar usuario
 Rem Agregar Grupo
 :AgregarG
 cls
-echo Introduce el grupo que quieras crear
+echo Introduce el nombre del grupo que quieras crear
 
 set /p grupo=
+:PreguntaG
 cls
 
-echo Se va a crear el grupo "%grupo%", quieres continuar? (S/N)
+echo Se va a crear el grupo "%grupo%", quieres continuar? (s=Si/n=No/c=Cancelar)
 set /p choice=
-if '%choice%' == 'S'    goto    AgregandoG 
-if '%choice%' == 's'    goto    AgregandoG 
-if '%choice%' == 'Si'    goto    AgregandoG 
-if '%choice%' == 'si'    goto    AgregandoG 
-goto AgregarG
+if '%choice%' == 'S'        goto    AgregandoG 
+if '%choice%' == 's'        goto    AgregandoG 
+if '%choice%' == 'Si'       goto    AgregandoG 
+if '%choice%' == 'si'       goto    AgregandoG
+if '%choice%' == 'n'    	goto 	AgregarG
+if '%choice%' == 'no'    	goto 	AgregarG
+if '%choice%' == 'N'    	goto 	AgregarG
+if '%choice%' == 'No'    	goto 	AgregarG
+if '%choice%' == 'c'		goto	Seleccion3
+if '%choice%' == 'cancelar'	goto	Seleccion3
+if '%choice%' == 'C'		goto	Seleccion3
+if '%choice%' == 'Cancelar'	goto	Seleccion3 
+echo Tu seleccion ("%choice%") no es valida
+pause  
+goto :PreguntaG
 
 :AgregandoG
 echo Creando grupo "%grupo%"...
@@ -171,14 +182,21 @@ REM codigo
 echo=================================
 echo Se ha creado el grupo "%grupo%" correctamente.
 pause
+:PreguntaG2
 cls
-echo Quieres crear otro grupo? (S/N)
+echo Quieres crear otro grupo? (s=Si)/(n=No)
 set /p choice=
-if '%choice%' == 'S'    goto    AgregarG 
-if '%choice%' == 's'    goto    AgregarG 
-if '%choice%' == 'Si'    goto    AgregarG 
-if '%choice%' == 'si'    goto    AgregarG
-goto Seleccion1
+if '%choice%' == 'S'        goto    AgregarG 
+if '%choice%' == 's'        goto    AgregarG 
+if '%choice%' == 'Si'       goto    AgregarG 
+if '%choice%' == 'si'       goto    AgregarG
+if '%choice%' == 'n'    	goto 	Seleccion3
+if '%choice%' == 'no'    	goto 	Seleccion3
+if '%choice%' == 'N'    	goto 	Seleccion3
+if '%choice%' == 'No'    	goto 	Seleccion3
+echo Tu seleccion ("%choice%") no es valida
+pause  
+goto :PreguntaG2
 Rem FIN Agregar grupo
 
 
