@@ -116,7 +116,7 @@ pause
 goto :PreguntaU
 
 :AgregandoU
-echo Creando usuario "%usuario%"...
+echo Creando el usuario "%usuario%"...
 echo=================================
 
 
@@ -143,6 +143,62 @@ pause
 goto :PreguntaU2
 
 Rem FIN Agregar usuario
+
+Rem Eliminar usuario
+:EliminarU
+cls
+echo Introduce el nombre del usuario que quieras eliminar
+
+set /p usuario=
+:PreguntaEU
+cls
+echo Se va a eliminar el usuario "%usuario%", quieres continuar? (s=Si/n=No/c=Cancelar)
+set /p choice=
+if '%choice%' == 'S'    	goto    EliminandoU 
+if '%choice%' == 's'    	goto    EliminandoU 
+if '%choice%' == 'Si'    	goto    EliminandoU 
+if '%choice%' == 'si'    	goto    EliminandoU
+if '%choice%' == 'n'    	goto 	EliminarU
+if '%choice%' == 'no'    	goto 	EliminarU
+if '%choice%' == 'N'    	goto 	EliminarU
+if '%choice%' == 'No'    	goto 	EliminarU
+if '%choice%' == 'c'		goto	Seleccion2
+if '%choice%' == 'cancelar'	goto	Seleccion2
+if '%choice%' == 'C'		goto	Seleccion2
+if '%choice%' == 'Cancelar'	goto	Seleccion2
+
+echo Tu seleccion ("%choice%") no es valida
+pause  
+goto :PreguntaEU
+
+:AgregandoU
+echo Eliminando el usuario "%usuario%"...
+echo=================================
+
+
+REM codigo
+
+
+echo=================================
+echo Se ha eliminado el usuario "%usuario%" correctamente.
+pause
+:preguntaEU2
+cls
+echo Quieres eliminar otro usuario? (s=Si)/(n=No)
+set /p choice=
+if '%choice%' == 'S'        goto    EliminarU 
+if '%choice%' == 's'        goto    EliminarU 
+if '%choice%' == 'Si'       goto    EliminarU 
+if '%choice%' == 'si'       goto    EliminarU 
+if '%choice%' == 'n'        goto    Seleccion2
+if '%choice%' == 'no'       goto    Seleccion2
+if '%choice%' == 'N'        goto    Seleccion2
+if '%choice%' == 'No'       goto    Seleccion2
+echo Tu seleccion ("%choice%") no es valida
+pause  
+goto :PreguntaEU2
+
+Rem Fin Eliminar Usuario
 
 Rem Agregar Grupo
 :AgregarG
