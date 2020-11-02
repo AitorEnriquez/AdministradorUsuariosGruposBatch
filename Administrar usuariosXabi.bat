@@ -135,14 +135,14 @@ pause
 cls
 echo Quieres crear otro usuario? (s=Si)/(n=No)
 set /p choice=
-if '%choice%' == 'S'        goto    AgregarU 
-if '%choice%' == 's'        goto    AgregarU 
-if '%choice%' == 'Si'       goto    AgregarU 
-if '%choice%' == 'si'       goto    AgregarU
-if '%choice%' == 'n'        goto    Seleccion2
-if '%choice%' == 'no'       goto    Seleccion2
-if '%choice%' == 'N'        goto    Seleccion2
-if '%choice%' == 'No'       goto    Seleccion2
+if      '%choice%' == 'S'        goto       AgregarU 
+if      '%choice%' == 's'        goto       AgregarU 
+if      '%choice%' == 'Si'       goto       AgregarU 
+if      '%choice%' == 'si'       goto       AgregarU
+if      '%choice%' == 'n'        goto       Seleccion2
+if      '%choice%' == 'no'       goto       Seleccion2
+if      '%choice%' == 'N'        goto       Seleccion2
+if      '%choice%' == 'No'       goto       Seleccion2
 echo Tu seleccion ("%choice%") no es valida
 pause  
 goto :PreguntaU2
@@ -159,18 +159,18 @@ set /p usuario=
 cls
 echo Se va a eliminar el usuario "%usuario%", quieres continuar? (s=Si/n=No/c=Cancelar)
 set /p choice=
-if '%choice%' == 'S'    	goto    EliminandoU 
-if '%choice%' == 's'    	goto    EliminandoU 
-if '%choice%' == 'Si'    	goto    EliminandoU 
-if '%choice%' == 'si'    	goto    EliminandoU
-if '%choice%' == 'n'    	goto 	EliminarU
-if '%choice%' == 'no'    	goto 	EliminarU
-if '%choice%' == 'N'    	goto 	EliminarU
-if '%choice%' == 'No'    	goto 	EliminarU
-if '%choice%' == 'c'		goto	Seleccion2
-if '%choice%' == 'cancelar'	goto	Seleccion2
-if '%choice%' == 'C'		goto	Seleccion2
-if '%choice%' == 'Cancelar'	goto	Seleccion2
+if      '%choice%' == 'S'    	    goto    EliminandoU 
+if      '%choice%' == 's'    	    goto    EliminandoU 
+if      '%choice%' == 'Si'    	    goto    EliminandoU 
+if      '%choice%' == 'si'    	    goto    EliminandoU
+if      '%choice%' == 'n'    	    goto 	EliminarU
+if      '%choice%' == 'no'    	    goto 	EliminarU
+if      '%choice%' == 'N'    	    goto 	EliminarU
+if      '%choice%' == 'No'    	    goto 	EliminarU
+if      '%choice%' == 'c'		    goto	Seleccion2
+if      '%choice%' == 'cancelar'	goto	Seleccion2
+if      '%choice%' == 'C'		    goto	Seleccion2
+if      '%choice%' == 'Cancelar'	goto	Seleccion2
 
 echo Tu seleccion ("%choice%") no es valida
 pause  
@@ -191,14 +191,14 @@ pause
 cls
 echo Quieres eliminar otro usuario? (s=Si)/(n=No)
 set /p choice=
-if '%choice%' == 'S'        goto    EliminarU 
-if '%choice%' == 's'        goto    EliminarU 
-if '%choice%' == 'Si'       goto    EliminarU 
-if '%choice%' == 'si'       goto    EliminarU 
-if '%choice%' == 'n'        goto    Seleccion2
-if '%choice%' == 'no'       goto    Seleccion2
-if '%choice%' == 'N'        goto    Seleccion2
-if '%choice%' == 'No'       goto    Seleccion2
+if      '%choice%' == 'S'        goto    EliminarU 
+if      '%choice%' == 's'        goto    EliminarU 
+if      '%choice%' == 'Si'       goto    EliminarU 
+if      '%choice%' == 'si'       goto    EliminarU 
+if      '%choice%' == 'n'        goto    Seleccion2
+if      '%choice%' == 'no'       goto    Seleccion2
+if      '%choice%' == 'N'        goto    Seleccion2
+if      '%choice%' == 'No'       goto    Seleccion2
 echo Tu seleccion ("%choice%") no es valida
 pause  
 goto :PreguntaEU2
@@ -216,18 +216,18 @@ cls
 
 echo Se va a crear el grupo "%grupo%", quieres continuar? (s=Si/n=No/c=Cancelar)
 set /p choice=
-if '%choice%' == 'S'        goto    AgregandoG 
-if '%choice%' == 's'        goto    AgregandoG 
-if '%choice%' == 'Si'       goto    AgregandoG 
-if '%choice%' == 'si'       goto    AgregandoG
-if '%choice%' == 'n'    	goto 	AgregarG
-if '%choice%' == 'no'    	goto 	AgregarG
-if '%choice%' == 'N'    	goto 	AgregarG
-if '%choice%' == 'No'    	goto 	AgregarG
-if '%choice%' == 'c'		goto	Seleccion3
-if '%choice%' == 'cancelar'	goto	Seleccion3
-if '%choice%' == 'C'		goto	Seleccion3
-if '%choice%' == 'Cancelar'	goto	Seleccion3 
+if      '%choice%' == 'S'           goto    AgregandoG 
+if      '%choice%' == 's'           goto    AgregandoG 
+if      '%choice%' == 'Si'          goto    AgregandoG 
+if      '%choice%' == 'si'          goto    AgregandoG
+if      '%choice%' == 'n'    	    goto 	AgregarG
+if      '%choice%' == 'no'    	    goto 	AgregarG
+if      '%choice%' == 'N'    	    goto 	AgregarG
+if      '%choice%' == 'No'    	    goto 	AgregarG
+if      '%choice%' == 'c'		    goto	Seleccion3
+if      '%choice%' == 'cancelar'	goto	Seleccion3
+if      '%choice%' == 'C'		    goto	Seleccion3
+if      '%choice%' == 'Cancelar'	goto	Seleccion3 
 echo Tu seleccion ("%choice%") no es valida
 pause  
 goto :PreguntaG
@@ -247,14 +247,14 @@ pause
 cls
 echo Quieres crear otro grupo? (s=Si)/(n=No)
 set /p choice=
-if '%choice%' == 'S'        goto    AgregarG 
-if '%choice%' == 's'        goto    AgregarG 
-if '%choice%' == 'Si'       goto    AgregarG 
-if '%choice%' == 'si'       goto    AgregarG
-if '%choice%' == 'n'    	goto 	Seleccion3
-if '%choice%' == 'no'    	goto 	Seleccion3
-if '%choice%' == 'N'    	goto 	Seleccion3
-if '%choice%' == 'No'    	goto 	Seleccion3
+if      '%choice%' == 'S'           goto    AgregarG 
+if      '%choice%' == 's'           goto    AgregarG 
+if      '%choice%' == 'Si'          goto    AgregarG 
+if      '%choice%' == 'si'          goto    AgregarG
+if      '%choice%' == 'n'    	    goto 	Seleccion3
+if      '%choice%' == 'no'    	    goto 	Seleccion3
+if      '%choice%' == 'N'    	    goto 	Seleccion3
+if      '%choice%' == 'No'    	    goto 	Seleccion3
 echo Tu seleccion ("%choice%") no es valida
 pause  
 goto :PreguntaG2
@@ -265,11 +265,11 @@ Rem FIN Agregar grupo
 Rem Eliminar grupo
 :EliminarG
 cls
-echo Introduce el grupo que quieras eliminar
+echo Introduce el nombre grupo que quieras eliminar
 
 set /p grupo=
 cls
-echo Se va a eliminar el grupo "%grupo%", quieres continuar? (s=Si/n=No)
+echo Se va a eliminar el grupo "%grupo%", quieres continuar? (s=Si/n=No/c=Cancelar)
 set /p choice=
 if 		'%choice%' 		== 		'S'				goto		EliminandoG 
 if 		'%choice%' 		== 		's'				goto		EliminandoG 
@@ -291,24 +291,129 @@ pause
 cls
 echo Quieres eliminar otro grupo? (s=Si)/(n=No)
 set /p choice=
-if '%choice%' == 'S'	goto	EliminarU 
-if '%choice%' == 's'	goto	EliminarU 
-if '%choice%' == 'Si'	goto	EliminarU 
-if '%choice%' == 'si'	goto	EliminarU
+if      '%choice%' == 'S'	goto	EliminarG 
+if      '%choice%' == 's'	goto	EliminarG 
+if      '%choice%' == 'Si'	goto	EliminarG 
+if      '%choice%' == 'si'	goto	EliminarG
 goto Seleccion1
 Rem FIN Eliminar usuario
 
 
 Rem Agregar usuario a grupo
 :AgregarUG
+cls
 echo Que usuario quieres agregar? A que grupo?
 set /p usuario=Usuario: 
 set /p grupo=Grupo: 
-echo Quieres agregar a "%usuario%" al grupo "%grupo%"?
+
+:PreguntaAUG
+cls
+echo Quieres agregar a "%usuario%" al grupo "%grupo%"? (s=Si/n=No/c=Cancelar)
+set /p choice=
+if      '%choice%' == 'S'           goto    AgregandoUG 
+if      '%choice%' == 's'           goto    AgregandoUG 
+if      '%choice%' == 'Si'          goto    AgregandoUG 
+if      '%choice%' == 'si'          goto    AgregandoUG
+if      '%choice%' == 'n'    	    goto 	AgregarUG
+if      '%choice%' == 'no'    	    goto 	AgregarUG
+if      '%choice%' == 'N'    	    goto 	AgregarUG
+if      '%choice%' == 'No'    	    goto 	AgregarUG
+if      '%choice%' == 'c'		    goto	Seleccion1
+if      '%choice%' == 'cancelar'	goto	Seleccion1
+if      '%choice%' == 'C'		    goto	Seleccion1
+if      '%choice%' == 'Cancelar'	goto	Seleccion1 
+echo Tu seleccion ("%choice%") no es valida
+pause 
+goto :PreguntaAUG
+
+:AgregandoUG
+echo Agregando el usuario "%usuario%" al grupo "%grupo%"...
+echo=================================
+
+
+REM codigo
+
+
+echo=================================
+echo Se ha agregado al usuario "%usuario%" al grupo "%grupo%" correctamente.
 pause
+
+:PreguntaAUG2
+cls
+echo Quieres agregar a otro usuario a otro grupo? (s=Si)/(n=No)
+set /p choice=
+if      '%choice%' == 'S'	        goto	AgregarUG 
+if      '%choice%' == 's'	        goto	AgregarUG 
+if      '%choice%' == 'Si'	        goto	AgregarUG 
+if      '%choice%' == 'si'	        goto	AgregarUG
+if      '%choice%' == 'n'    	    goto 	Seleccion1
+if      '%choice%' == 'no'    	    goto 	Seleccion1
+if      '%choice%' == 'N'    	    goto 	Seleccion1
+if      '%choice%' == 'No'    	    goto 	Seleccion1
+echo Tu seleccion ("%choice%") no es valida
+pause  
+goto :PreguntaAUG2
+
+
 Rem FIN Agregar usuario a grupo
 
+Rem Eliminar usuario de un grupo
+:EliminarUG
+cls
+echo Que usuario de que grupo quieres eliminar?
+set /p usuario=Usuario: 
+set /p grupo=Grupo: 
 
+:PreguntaEUG
+cls
+echo Quieres eliminar a "%usuario%" del grupo "%grupo%"? (s=Si/n=No/c=Cancelar)
+set /p choice=
+if      '%choice%' == 'S'           goto    EliminandoUG 
+if      '%choice%' == 's'           goto    EliminandoUG 
+if      '%choice%' == 'Si'          goto    EliminandoUG 
+if      '%choice%' == 'si'          goto    EliminandoUG
+if      '%choice%' == 'n'    	    goto 	EliminarUG
+if      '%choice%' == 'no'    	    goto 	EliminarUG
+if      '%choice%' == 'N'    	    goto 	EliminarUG
+if      '%choice%' == 'No'    	    goto 	EliminarUG
+if      '%choice%' == 'c'		    goto	Seleccion1
+if      '%choice%' == 'cancelar'	goto	Seleccion1
+if      '%choice%' == 'C'		    goto	Seleccion1
+if      '%choice%' == 'Cancelar'	goto	Seleccion1 
+echo Tu seleccion ("%choice%") no es valida
+pause 
+goto :PreguntaEUG
+
+:EliminandoUG
+echo Eliminando el usuario "%usuario%" del grupo "%grupo%"...
+echo=================================
+
+
+REM codigo
+
+
+echo=================================
+echo Se ha eliminando el usuario "%usuario%" del grupo "%grupo%" correctamente.
+pause
+
+:PreguntaEUG2
+cls
+echo Quieres eliminar otro usuario de otro grupo? (s=Si)/(n=No)
+set /p choice=
+if      '%choice%' == 'S'	        goto	EliminarUG 
+if      '%choice%' == 's'	        goto	EliminarUG 
+if      '%choice%' == 'Si'	        goto	EliminarUG 
+if      '%choice%' == 'si'	        goto	EliminarUG
+if      '%choice%' == 'n'    	    goto 	Seleccion1
+if      '%choice%' == 'no'    	    goto 	Seleccion1
+if      '%choice%' == 'N'    	    goto 	Seleccion1
+if      '%choice%' == 'No'    	    goto 	Seleccion1
+echo Tu seleccion ("%choice%") no es valida
+pause  
+goto :PreguntaEUG2
+
+
+Rem FIN Agregar usuario a grupo
 
 :Salir
 cls
