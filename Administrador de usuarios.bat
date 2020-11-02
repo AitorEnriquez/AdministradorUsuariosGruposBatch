@@ -1,13 +1,5 @@
 @echo off
 
-Rem Definir 'Variables' que se van a utilizar
-Rem set choice=
-Rem set usuario=
-Rem set grupo=
-Rem FIN Defnir Variables
-
-
-
 Rem Bienvenida
 :start
 echo Bienvenido, que deseas hacer?
@@ -24,6 +16,8 @@ echo=================================
 echo Selecciona una opcion:
 echo (1) Opciones de usuarios.
 echo (2) Opciones de grupo.
+echo (3) Lista de usuarios.
+echo (4) Lista de grupos.
 echo (0) Salir.
 echo==================================
 
@@ -32,6 +26,8 @@ set /p choice=
 
 if 		'%choice%'		== 		'1' 			goto 		Seleccion2
 if 		'%choice%' 		== 		'2' 			goto 		Seleccion3
+if 		'%choice%' 	 	== 		'3' 			goto		ListaU
+if 		'%choice%' 	 	== 		'4' 			goto		ListaG
 if 		'%choice%' 		== 		'0'				goto 		Salir
 
 echo Tu seleccion ("%choice%") no es valida
@@ -104,9 +100,9 @@ cls
 echo Se va a crear el usuario "%usuario%", quieres continuar? (s=Si/n=No/c=Cancelar)
 set /p choice=
 if 		'%choice%'		== 		'S'				goto		AgregandoU
-if 		'%choice%' 		== 		's'				goto		AgregandoU 
-if 		'%choice%'	 	== 		'Si'			goto		AgregandoU 
-if 		'%choice%' 		== 		'si'			goto		AgregandoU 
+if 		'%choice%' 		== 		's'				goto		AgregandoU
+if 		'%choice%'	 	== 		'Si'			goto		AgregandoU
+if 		'%choice%' 		== 		'si'			goto		AgregandoU
 if 		'%choice%' 		== 		'n'    			goto 		AgregarU
 if 		'%choice%' 		== 		'no'   			goto 		AgregarU
 if 		'%choice%' 		== 		'N'    			goto 		AgregarU
@@ -121,28 +117,27 @@ pause
 goto PreguntaU
 
 :AgregandoU
+cls
 echo Creando usuario "%usuario%"...
-echo=================================
-
-
-REM codigo
-
-
-echo=================================
+REM echo=================================
+net user %usuario% /add *
+REM echo=================================
+cls
 echo Se ha creado el usuario "%usuario%" correctamente.
 pause
-:preguntaU2
+
+:PreguntaU2
 cls
 echo Quieres crear otro usuario? (s=Si)/(n=No)
 set /p choice=
-if      '%choice%' == 'S'        goto       AgregarU 
-if      '%choice%' == 's'        goto       AgregarU 
-if      '%choice%' == 'Si'       goto       AgregarU 
-if      '%choice%' == 'si'       goto       AgregarU
-if      '%choice%' == 'n'        goto       Seleccion2
-if      '%choice%' == 'no'       goto       Seleccion2
-if      '%choice%' == 'N'        goto       Seleccion2
-if      '%choice%' == 'No'       goto       Seleccion2
+if      '%choice%'	 	== 		'S'        goto       AgregarU 
+if      '%choice%'	 	== 		's'        goto       AgregarU 
+if      '%choice%'	 	== 		'Si'       goto       AgregarU 
+if      '%choice%'	 	== 		'si'       goto       AgregarU
+if      '%choice%'	 	== 		'n'        goto       Seleccion2
+if      '%choice%'	 	== 		'no'       goto       Seleccion2
+if      '%choice%'	 	== 		'N'        goto       Seleccion2
+if      '%choice%'	 	== 		'No'       goto       Seleccion2
 echo Tu seleccion ("%choice%") no es valida
 pause  
 goto :PreguntaU2
@@ -176,15 +171,12 @@ echo Tu seleccion ("%choice%") no es valida
 pause  
 goto :PreguntaEU
 
-:AgregandoU
+:EliminandoU
 echo Eliminando el usuario "%usuario%"...
-echo=================================
-
-
-REM codigo
-
-
-echo=================================
+REM echo=================================
+net user %usuario% /delete
+REM echo=================================
+cls
 echo Se ha eliminado el usuario "%usuario%" correctamente.
 pause
 :preguntaEU2
@@ -234,13 +226,10 @@ goto :PreguntaG
 
 :AgregandoG
 echo Creando grupo "%grupo%"...
-echo=================================
-
-
-REM codigo
-
-
-echo=================================
+REM echo=================================
+net localgroup %grupo% /add
+REM echo=================================
+cls
 echo Se ha creado el grupo "%grupo%" correctamente.
 pause
 :PreguntaG2
@@ -279,13 +268,10 @@ goto EliminarG
 
 :EliminandoG
 echo Eliminando grupo "%grupo%"...
-echo=================================
-
-
-REM codigo
-
-
-echo=================================
+REM echo=================================
+net localgroup %grupo% /delete
+REM echo=================================
+cls
 echo Se ha eliminado el grupo "%grupo%" correctamente.
 pause
 cls
@@ -328,13 +314,10 @@ goto :PreguntaAUG
 
 :AgregandoUG
 echo Agregando el usuario "%usuario%" al grupo "%grupo%"...
-echo=================================
-
-
-REM codigo
-
-
-echo=================================
+REM echo=================================
+net localgroup %grupo% %usuario% /add
+REM echo=================================
+cls
 echo Se ha agregado al usuario "%usuario%" al grupo "%grupo%" correctamente.
 pause
 
@@ -386,13 +369,10 @@ goto :PreguntaEUG
 
 :EliminandoUG
 echo Eliminando el usuario "%usuario%" del grupo "%grupo%"...
-echo=================================
-
-
-REM codigo
-
-
-echo=================================
+REM echo=================================
+net localgroup %grupo% %usuario% /delete
+REM echo=================================
+cls
 echo Se ha eliminando el usuario "%usuario%" del grupo "%grupo%" correctamente.
 pause
 
@@ -412,8 +392,27 @@ echo Tu seleccion ("%choice%") no es valida
 pause  
 goto :PreguntaEUG2
 
-
 Rem FIN Agregar usuario a grupo
+
+
+
+Rem ListaUsuarios
+:ListaU
+cls
+net user
+pause
+goto Seleccion1
+Rem Fin ListaUsuarios
+
+
+
+Rem ListaGrupos
+:ListaG
+cls
+net localgroup
+pause
+goto Seleccion1
+Rem Fin ListaGrupos
 
 :Salir
 cls
